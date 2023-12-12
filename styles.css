@@ -6,6 +6,7 @@
   --text: #141414;
   --main-content: #efeff5;
   --sidebar-text: #ffffff;
+  --card-right-border: #ffa500;
 }
 
 *::before,
@@ -20,10 +21,6 @@ body {
   display: grid;
   grid-template: 1fr 3fr / 1fr 4fr;
   font-family: "Roboto", sans-serif;
-}
-
-.main-content {
-  border: 2px red solid;
 }
 
 /* header */
@@ -142,7 +139,6 @@ button {
   font-weight: 800;
 
   gap: 50px;
-  min-height: 100vh;
   box-shadow: inset 0px 0px 5px 0px gray;
 }
 
@@ -167,4 +163,124 @@ button {
 .sidebar-logo {
   display: flex;
   align-items: center;
+}
+
+/* main-content */
+
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  background-color: var(--main-content);
+  padding-bottom: 50px;
+  padding-top: 25px;
+}
+
+.projects > h3,
+.announcements > h3,
+.trending > h3 {
+  font-size: 2rem;
+}
+
+.projects {
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 2;
+  flex: 1;
+}
+
+.projects,
+.announcements,
+.trending {
+  margin: 0 25px;
+}
+
+.card-container {
+  margin-top: 10px;
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.news {
+  grid-row: 1 / span 3;
+
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.announcements {
+  grid-row: 1/2;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0px 15px 15px 15px;
+}
+
+.announcement-content {
+  background-color: var(--sidebar-text);
+  border-radius: 10px;
+  margin-top: 10px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.announcement-content > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  border-bottom: black solid 1px;
+}
+
+.card {
+  height: 180px;
+  border-radius: 10px;
+  padding: 0 15px;
+  border-left: 15px var(--side-card) solid;
+  background-color: var(--sidebar-text);
+  box-shadow: 2px 1px 2px gray;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-icons {
+  align-self: end;
+}
+
+.trending {
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 15px 0 15px;
+}
+
+.trending-content {
+  margin-top: 10px;
+  background-color: var(--sidebar-text);
+  border-radius: 10px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 15px 15px 0 15px;
+}
+
+.trending-content > div {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.trending-profile {
+  display: flex;
+  flex-direction: column;
 }
